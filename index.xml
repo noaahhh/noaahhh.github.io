@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nuh Yurduseven &#39;s Personal Portfolio</title>
-    <link>http://noaahhh.github.io/portfolio/</link>
+    <link>http://nuhyurduseven.github.io/portfolio/</link>
     <description>Recent content on Nuh Yurduseven &#39;s Personal Portfolio</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://noaahhh.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="http://nuhyurduseven.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://noaahhh.github.io/portfolio/description/</link>
+      <link>http://nuhyurduseven.github.io/portfolio/description/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://noaahhh.github.io/portfolio/description/</guid>
+      <guid>http://nuhyurduseven.github.io/portfolio/description/</guid>
       <description>Hi, I am Nuh Yurduseven This is my simple portfolio page I am computer engineer and software engineering MsC student.
 I am interested in ;
  Backend programming GNU/Linux, System and Network programming DevOps&amp;amp;Middleware Data science and AI Open finance data and financial data prediction  Programming language;
