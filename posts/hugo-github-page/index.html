@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>How to create a static website</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/layouts/main.css"/>
+<link rel="stylesheet" href="/css/navigators/navbar.css"/>
+<link rel="stylesheet" href="/css/plyr.css"/>
+<link rel="stylesheet" href="/css/flag-icon.min.css"/>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+
+
+<meta property="og:title" content="How to create a static website" />
+<meta property="og:description" content="Make a static web site" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/hugo-github-page/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-25T06:00:23+06:00" />
+<meta property="article:modified_time" content="2021-12-25T06:00:23+06:00" />
+
+
+
+    
+    
+<meta name="description" content="Make a static web site" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/css/layouts/single.css"/>
+<link rel="stylesheet" href="/css/navigators/sidebar.css">
+
+<link rel="stylesheet" href="/css/style.css"/>
+
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      Nuh&#39;s Blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse lang-selector" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      
+      </ul>
+    </div>
+  </div>
+  
+  
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/flask-api/" title="Create a systemd service for Flask API(for GNU/Linux distros)">Create a systemd service for Flask API(for GNU/Linux distros)</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cold-wallet-using-usb/" title="How to create cold storage wallet using usb memory stick">How to create cold storage wallet using usb memory stick</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/hugo-github-page/" title="How to make a static web sites using Hugo-Github Page">How to make a static web sites using Hugo-Github Page</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/review-of-data-science-tools/" title="Review of Data Science Platform Tools -KNIME Analytic(Section 1">Review of Data Science Platform Tools -KNIME Analytic(Section 1</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://example.com/images/posts/hugo-githubpages/hugo-githubpages.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/pp_hu2a4128272a84060f71b4ba4af09fefd0_4909_120x120_fit_q75_box.jpeg' alt="Author Image">
+          <h5 class="author-name">Nuh Yurduseven</h5>
+          <p>December 25, 2021</p>
+        </div>
+
+        <div class="title">
+          <h1>How to create a static website</h1>
+        </div>
+        
+        <div class="post-content" id="post-content">
+          <p>Hello, In this article, I will cover creating simple static websites with hugo, a static website creation tool written in golang, hosting and publishing them on github. For this, I plan to prepare two different websites and use different third-party web services that will be useful to us while preparing them. First of all, I will talk about the use of hugo and then I will continue by creating a simple website.</p>
+<h3 id="hugo">Hugo</h3>
+<p>Hugo is a static web-site generator written in Go. This framework can quickly create a static website with terminal commands, thanks to a freely installed and available CLI tool. It also has different deployment options. In the hosting and deployment section of the <a href="https://gohugo.io">gohugo.io</a> site, it is explained how the website can be hosted on different web hosting platforms. But in this article, I will build a website that will be hosted on github and run in the domain username.github.io.</p>
+<p>To download the framework and for a quick start, you can go to <a href="https://gohugo.io">gohugo.io</a> to install it on your system and start right away. If you are using a GNU distribution, the package is probably in your repository. On ubuntu and debian repositories hugo can be installed with;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo apt install hugo
+</code></pre></div><p>On Fedora repositories hugo can be installed with;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo dnf install hugo
+</code></pre></div><p>In hugo official website, it recommends installation with homebrew for both linux and mac. You can use the code below for Homebrew installation;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ /bin/bash -c <span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</code></pre></div><p>Then you can install hugo on your system with <strong>brew install hugo</strong></p>
+<p>After the installation, You can create a new web site with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo new site /path/to/your/site
+</code></pre></div><p>on terminal.The file hierarchy is as follows. The config.toml file is the file that allows us to configure the website.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/4ws2y18eyxou4v7pl5dc.png" alt="tree-hugo">
+Now, this will open a blank page. Because there is no file in the layout.
+You can clone one or more themes by selecting them from <a href="https://themes.gohugo.io">gohugo.io/themes</a> and using git into the themes directory. using  <strong>hugo new content/new_article.md</strong> it can be used to create a new content.</p>
+<p>The website will start working on local server 1331 port with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo server 
+</code></pre></div><p>If you want to take your experience further, you can create your own design by using the template tutorial on gohugo.io. But in this article, I will only create web pages using ready-made templates.</p>
+<h3 id="creating-a-static-portfolio-page">Creating a Static Portfolio Page</h3>
+<p>Portfolio pages are one of the best examples of static pages. These are the types of pages where the works done are exhibited and other accounts or communication e-mails are given as links. To create it, I first need to clone it with git by selecting from the portfolio themes listed on the <a href="https://themes.gohugo.io">themes.gohugo.io</a> page. I choose the theme named hugo-shell-theme. One of the reasons why I prefer it is that it has a very simple structure. I will make my first attempt using this theme.
+I&rsquo;m clonnig the theme into themes directory with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git init 
+$ git submodule add https://github.com/Yukuro/hugo-theme-shell.git themes/hugo-theme-shell
+$ hugo server -t hugo-theme-shell -w -D
+</code></pre></div><p>and starting the hugo server.It is currently running on the local server, but without any configuration. for this, I copy the content of the config.toml given on the github page of the theme and paste it into my config file in the directory. Below is the config file where I changed some parts and deleted the comment lines. I preferred powershell as shema.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hq3fs9y4koa2k80f59ki.png" alt="config"></p>
+<p>It gives me an output like this:
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/l5g8sjoilkgpcnsv7r5s.png" alt="powershell"></p>
+<p>For a better use, you can try to use a markdown file in the description. For example, you can find the portfolio website I use at <a href="https://noaahhh.github.io">noaahhh.github.io</a>.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zv1txnv5movgxcd62v9i.png" alt="portfolio"></p>
+<p>For Markdown usage, a description.md created in content is given to the description section of the config file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">description<span style="color:#f92672">=</span>/description.md
+</code></pre></div><p>Then you can fill out whatever you want. If you go to the code side, you can see how it takes the parameters from the config file between the html tags.</p>
+<p>Likewise, now I&rsquo;m cloning the hugo-profile theme into the themes directory with git. This theme uses config.yml with .yaml extension as config file. I copy one of the 3 different yaml files (v1.yml) in the theme directory to my root directory as config.yml. And content of the website directory  must be copied root directory. Our website is using the new theme on the local server after the command below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ hugo server -t hugo-profile -w -D --config<span style="color:#f92672">=</span>config.yaml
+</code></pre></div><p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1lu9h55p9ser08a2b09w.png" alt="blog"></p>
+<p>In this theme, you can also create your personal website by changing the parameters in the config file. In the following sections, I will talk about a more user-experience-oriented method.</p>
+<h3 id="e-commerce-and-product-presentation-pages">e-commerce and product presentation pages</h3>
+<p>In this section I will try the Hero theme. Hero has a familiar type of company landing page and a clean interface. That&rsquo;s why I chose this theme. I&rsquo;m creating a new website with Hugo. Then I clone this theme with git into the theme directory. There is a directory named example-site in the theme. This directory contains a pre-configured toml file and a ready-made website. I copy the contents of this directory to my home directory. Then I open my config file with an editor and delete the themesDir parameter. Then I can run hugo server and watch my website from localhost port 1313.</p>
+<p>I&rsquo;ve added an image below listing the terminal operations performed. You can check.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mno2yd55802n6tmrj1xy.png" alt="terminal-hero"></p>
+<p>This way you can create websites to promote products or for a company portfolio.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6fpcgiembwgtpac3vywa.png" alt="e-commerce"></p>
+<h3 id="github-pages">Github Pages</h3>
+<p>There are multiple options for hosting a website built with Hugo. You can see the host and deployment options from the Hosting&amp;Deployment link. We can host our website with services such as github, gitlab, netlify firebase. In the Github option, you can access the page we created via the username.github.io domain. In this application I will work on github.</p>
+<p>We can publish our portfolio site, one of the websites we have prepared so far, on our own github domain. For this, we go to the directory where our portfolio website is located and create our website with the hugo command in this directory. A public file will be created in the directory and there will be our website using html to be published in this directory. If we submit it to our git repo within this directory we can publish our website using Pages there. We go to the Github page and open a repo named username.github.io.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/6ma4i6s8j81230xp2q6z.png" alt="diagram-1"></p>
+<p>We are connecting the public directory created according to the diagram above to our relevant git repo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">myHugoSite $ cd public
+public/ $ git init 
+public/ $ git remote add origin https://github.com/username/username.github.io.git
+public/ $ git remote set-url origin http://&lt;public-access-key&gt;@github.com/username/username.github.io
+</code></pre></div><p>After the last changes, to connect to our git repo, you should create a key by following the github-&gt;settings-&gt;developer Settings-&gt;Personal Access Key path and paste this key in the relevant section in the last command to link our repo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">public/ $ git add .
+public/ $ git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span>
+public/ $ git push origin main
+</code></pre></div><p>Then we can wait for it to be published from the setting-&gt; Pages section in our repo. Our site will be published from the relevant url.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/e378u4nnqp7r9tsc4l95.png" alt="gh-pages-1"></p>
+<h3 id="different-architecture-for-github">Different architecture for GitHub</h3>
+<p>If we want to publish our website over a subdomain with the same name as the repo, we can open a new repo and send the files in the public to this repo and publish it. If we examine the diagram below, we can create a website in our local system and keep this site on github. We can create a submodule link from another git repo in the &ldquo;themes&rdquo; directory. We can publish our files to be published with <strong>Github Pages</strong> by sending them to a new repo using the subdomain name to be published.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/5d892vgtptpi9ysgvjnd.png" alt="diagram-2"></p>
+<p>You can create a submodule with</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mySite/ $ git submodule add http://github.com/Yukuro/hugo-theme-shell.git themes/hugo-theme-shell
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mySite/ $ hugo -d ../myPortfolio
+</code></pre></div><p>We can create html files in a directory called myPortfolio, which is in the same directory as our hugo website using like the command above.Then we can link this directory to the github repo and publish our website on a subdomain with the same name as the repo.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rgcymdrq540mxbbqrwbl.png" alt="gh-pages-2"></p>
+<h3 id="hugo-and-forestryio">Hugo and Forestry.io</h3>
+<p><a href="https://forestry.io">Forestry.io</a> is a web service that makes it easy to manage the contents of our website on github using a graphical interface. This service is a CMS tool that works with frameworks such as hugo, jeykll. Content entry in personal blogs can be done easily. You can get more detailed information on the page.
+It has a simple use. We just have to register for the service and then create a new registration with add site in the &ldquo;My Sites&rdquo; section and select Hugo as the &ldquo;static site generator&rdquo;.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/d58pi3d0todtzinp5c4f.png" alt="forestry.io">
+And then we connect our repo with the forestry.io service by choosing git provider.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/edx8zgvzj297fu8ozvtg.png" alt="cms-welcome"></p>
+<p>Then we can prepare our posts in the blog in the document types we choose.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/h8kaj10fqi2mywnpha5m.png" alt="edit-blog"></p>
+<p>Apart from this, there are many CMS applications that work with Hugo. Cloudcannon, strapi.io, netlifyCMS can be given as examples. These are the systems we can use to organize our content between host and deployment.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7gaw9p3nfb583de0bfl3.png" alt="diagram-3"></p>
+<p>The loop in the diagram represents the CMS service. With CMS services, operations such as content creation and editing can be done before deployment. By connecting with services such as AWS, Netlify, content editing can be done between the git provider and the deploymet service. And at the same time it provides synchronization with the website maintained in git.</p>
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+        <div class="col-md-6 share-buttons">
+        
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://github.com/hugo-toha/hugo-toha.github.io/edit/main/content/posts/hugo-github-page.md" title="Improve this page" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Improve this page
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/cold-wallet-using-usb/" title="How to create cold storage wallet using usb memory stick" class="btn btn-outline-info">
+        <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
+        <div class="next-prev-text">How to create cold storage wallet using usb memory stick</div>
+      </a>
+    </div>
+  
+  
+      
+      
+        
+      
+      <div class="col-md-6 next-article">
+        <a href="/posts/review-of-data-science-tools/" title="Review of Data Science Platform Tools -KNIME Analytic(Section 1)" class="btn btn-outline-info">
+          <div>Next <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">Review of Data Science Platform Tools -KNIME Analytic(Section 1)</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
+  
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#hugo">Hugo</a></li>
+        <li><a href="#creating-a-static-portfolio-page">Creating a Static Portfolio Page</a></li>
+        <li><a href="#e-commerce-and-product-presentation-pages">e-commerce and product presentation pages</a></li>
+        <li><a href="#github-pages">Github Pages</a></li>
+        <li><a href="#different-architecture-for-github">Different architecture for GitHub</a></li>
+        <li><a href="#hugo-and-forestryio">Hugo and Forestry.io</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+  
+      
+  
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#experiences">Experiences</a>
+                </li>
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#accomplishments">Accomplishments</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#recent-posts">Recent Posts</a>
+                </li>
+              
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:nuh_yrdsvn@outlook.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>nuh_yrdsvn@outlook.com</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hossainemruz/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2020 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/js/navbar.js"></script>
+<script type="text/javascript" src="/js/plyr.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Review of Data Science Platform Tools -KNIME Analytic(Section 1)</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/layouts/main.css"/>
+<link rel="stylesheet" href="/css/navigators/navbar.css"/>
+<link rel="stylesheet" href="/css/plyr.css"/>
+<link rel="stylesheet" href="/css/flag-icon.min.css"/>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+
+
+<meta property="og:title" content="Review of Data Science Platform Tools -KNIME Analytic(Section 1)" />
+<meta property="og:description" content="a review of data science platform tools" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/review-of-data-science-tools/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-11-10T06:00:23+06:00" />
+<meta property="article:modified_time" content="2021-11-10T06:00:23+06:00" />
+
+
+
+    
+    
+<meta name="description" content="a review of data science platform tools" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/css/layouts/single.css"/>
+<link rel="stylesheet" href="/css/navigators/sidebar.css">
+
+<link rel="stylesheet" href="/css/style.css"/>
+
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      Nuh&#39;s Blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse lang-selector" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      
+      </ul>
+    </div>
+  </div>
+  
+  
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/flask-api/" title="Create a systemd service for Flask API(for GNU/Linux distros)">Create a systemd service for Flask API(for GNU/Linux distros)</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cold-wallet-using-usb/" title="How to create cold storage wallet using usb memory stick">How to create cold storage wallet using usb memory stick</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/hugo-github-page/" title="How to make a static web sites using Hugo-Github Page">How to make a static web sites using Hugo-Github Page</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/review-of-data-science-tools/" title="Review of Data Science Platform Tools -KNIME Analytic(Section 1">Review of Data Science Platform Tools -KNIME Analytic(Section 1</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://example.com/images/posts/knime/knime.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/pp_hu2a4128272a84060f71b4ba4af09fefd0_4909_120x120_fit_q75_box.jpeg' alt="Author Image">
+          <h5 class="author-name">Nuh Yurduseven</h5>
+          <p>November 10, 2021</p>
+        </div>
+
+        <div class="title">
+          <h1>Review of Data Science Platform Tools -KNIME Analytic(Section 1)</h1>
+        </div>
+        
+        <div class="post-content" id="post-content">
+          <p>Hello, In the first article of the series, where I examined the data science software that I decided to be a series and I will support it with applications, the installation of the KNIME application, which is written in Java and built on Eclipse, and which can prepare data science and artificial intelligence applications with workflow-style visual programming, its configuration on widely used GNU/linux systems. and I will review its usage with a machine learning application. I plan to save the application I prepared and share it in a github repo.</p>
+<h2 id="knime">KNIME</h2>
+<p>KNIME Analytics is a data science environment written in Java. This software allows visual programming in the form of a workflow using various nodes and is an application that allows to develop a data mining application even without knowing advanced coding. It has a very diverse and rich plugin center and is used quite often in academia as well. It is an extensible data science platform where user-created scripts and codes can be used as well as visual programming. KNIME is cross-platform software that supports installation on many operating systems. You can click <a href="https://www.knime.com/downloads">link</a> to download. In this article, I will review KNIME for GNU/Linux distributions only.</p>
+<h2 id="configuration">Configuration</h2>
+<p>You can extract the <code>tar.gz</code> archive of the KNIME application to the desired location.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~$ tar xvf knime-analytic-?.?.?.tar.gz -C /opt/knime 
+</code></pre></div><p>All libraries and plugins of KNIME are available in the directory. There is a binary file named <code>Knime</code> and you can start the application using it. But it needs <code>java</code> to work.</p>
+<h3 id="java-11">JAVA 11</h3>
+<p>KNIME Analytics works with Java 11 and higher. For this reason, you can install one of the <code>openjdk-11</code> or <code>openjdk-latest</code> packages for KNIME. Depending on the distribution you use, you can easily download and install these jdks from the main repository.</p>
+<p>For example, for RHEL based ones;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~$ sudo dnf/yum install java-11-openjdk <span style="color:#75715e"># or java-latest-openjdk </span>
+</code></pre></div><p>Or Debian based ones;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">~$ sudo apt install openjdk-11-jdk <span style="color:#75715e"># or default-jre </span>
+</code></pre></div><p>Another option I can suggest here is the libertica jdk versions published by Belsoft. These are opensource and freely distributed java jdk versions. You can download and install jdk with many options such as standard and full package. You can find installation scripts or archives [on this page] (<a href="https://bell-sw.com/pages/downloads/#mn">https://bell-sw.com/pages/downloads/#mn</a>) for many operating systems. For KNIME Analytics, standard jdk-11-lts is sufficient. For Linux, we need to download the tar.gz package and extract it to a directory. Then the <code>JAVA_HOME</code> and <code>PATH</code> variables are updated and the java installation is completed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">~$ mkdir -p ~/libertica-jdks
+~$ tar xvf /path/to/downloaded-jdk.tar.gz -C ~/libertica-jdks/
+
+~$ export JAVA_HOME<span style="color:#f92672">=</span>~/libertica-jdks/jdk-11.?.?
+~$ export PATH<span style="color:#f92672">=</span>$PATH:JAVA_HOME/bin
+<span style="color:#75715e">## after this</span>
+~$ java -version
+</code></pre></div><p>JDK is available in this session. If you want to use it in this location all the time, you should add the lines exported for JAVA_HOME and PATH to your <code>.bashrc</code> or <code>.zshrc</code> file if you are using zsh.</p>
+<p>After the Java installation, it is sufficient to go to the directory where knime is installed and run the <code>./knime</code> script. If you have more than one jdk installed on your system, you can specifically give the path to jdk-11 with <code>./knime -v /path/to/jdk-11/bin</code>.</p>
+<p>If you want to create a <code>dektop entry</code> for this;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">[<span style="color:#a6e22e">Desktop</span> <span style="color:#a6e22e">Entry</span>]<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Type</span>=<span style="color:#a6e22e">Application</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Name</span>=<span style="color:#a6e22e">KNIME</span> <span style="color:#a6e22e">Analytic</span> <span style="color:#a6e22e">Platform</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Description</span>=<span style="color:#a6e22e">Data</span> <span style="color:#a6e22e">Science</span> <span style="color:#a6e22e">Environment</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Exec</span>=<span style="color:#e6db74">/path/</span><span style="color:#a6e22e">to</span><span style="color:#e6db74">/knime-folder/</span><span style="color:#a6e22e">knime_4</span>.?.?/<span style="color:#a6e22e">knime</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Icon</span>=<span style="color:#e6db74">/rpath/</span><span style="color:#a6e22e">to</span><span style="color:#e6db74">/knime-folder/</span><span style="color:#a6e22e">knime_4</span>.?.?/<span style="color:#a6e22e">icon</span>.<span style="color:#a6e22e">svg</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">Categories</span>=<span style="color:#a6e22e">Development</span>;<span style="color:#a6e22e">Science</span>;<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">terminal</span>=<span style="color:#a6e22e">false</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>You can create a file named <code>~/.local/share/application/knime.desktop</code> and save the entry to the relevant location.If you have problem with exec command. You can give a shell script that runs the ./knime script as a parameter in the <code>exec</code> command. If you are using wayland as a display server, you may have problems in the application. For this reason, you can add the line <code>export GDK_BACKEND=x11</code> to your configuration file <code>bashrc</code> or <code>zshrc</code> or whatever shell you are using, or inside your script file that starts KNIME. If you&rsquo;re already using x11 you won&rsquo;t have any problems.For example, the shell script that starts KNIME;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">#<span style="color:#e6db74">/bin/</span><span style="color:#a6e22e">bash</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#a6e22e">export</span> <span style="color:#a6e22e">GDK_BACKEND</span>=<span style="color:#a6e22e">x11</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>.<span style="color:#e6db74">/knime -v /</span><span style="color:#a6e22e">path</span><span style="color:#e6db74">/to/</span><span style="color:#a6e22e">java</span>-<span style="color:#a6e22e">jdk</span><span style="color:#ae81ff">-11</span>/<span style="color:#a6e22e">bin</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>may form.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qrcdyzrz61ur58p4s10l.png" alt="knime"></p>
+<h3 id="extension-installations">Extension installations</h3>
+<p>The KNIME application had many extentions. The high number of users and its extensibility are the most important factors that bring it to the top among other data mining applications. You can open the interface by selecting <code>Install KNIME Extensions...</code> from the <code>File</code> menu in the application. You can install it by searching for the add-on you want. For example, you can install the <code>KNIME twitter connector</code> plugin that should be used to connect to the Twitter API and pull data. It will be installed with the necessary dependency packages. The application will need to be restarted before it can read new plugins.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/gtp9jxcmsqnzrx673btk.png" alt="knime-extentions">
+Then you can search for the node you want from the <code>Node Repository</code> section and add it to your project.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/0ac4lvygghbpuu7wu7p8.png" alt="knime-twitter"></p>
+<h2 id="machine-learning-application-with-knime">Machine Learning Application with KNIME</h2>
+<p>In this section, a ready-made dataset will be used to prepare a machine learning application. A data mining workflow will be created with KNME nodes by using the dataset named <code>HCV Data Dataset</code> in the <code>UCI Machine Learning Repository</code>. The project is created with <code>new project</code> from the <code>File</code> menu. <code>Node Repository</code>
+I add my file to the project by searching <code>file reader</code> or <code>csv reader</code> from the section. Similarly, I search for the transactions I want to do in the <code>Node Repository</code> and add them to my project and run them, and at the end of each operation, I give the output as the input of the next node.</p>
+<p>When I right-click on the nodes, I configure the operation and then run it. When I right-click again, I can see the output of the node as a result of the operation under the menu. The <code>Normalize</code> node below outputs the normalized table and model.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/02n01ux1z0vce0lakmub.png" alt="knime-menu"></p>
+<p>The operations performed in this application can be seen as follows.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yqpce7ybuaynkk5089gm.png" alt="application"></p>
+<p>In the application, the data in the csv file was first read with the <code>csv reader</code> node and the categorical values ​​such as <code>sex</code> were given to the <code>category to number</code> node to be converted into numbers. The output of this node is given to the <code>column filter</code> node to extract the Id and categorical gender values. The output dataset is given to the <code>Normalize</code> node. The dataset with 0-1 normalization was given to the <code>Partitioning</code> node to be divided into 70% training and 30% testing. A model was created by giving the training dataset from the parts to the <code>RProp MLP Learner</code> node. This model and test dataset was tested by giving it to the <code>MultiLayerPerceptron Predicter</code> node. And the output of the node has been transformed into a table with the comparison matrix and score values ​​related to the performance in the <code>Scorer</code> node.</p>
+<p>When our perceptron model was tested with 1 hidden layer and 10 neurons, it was seen that our comparison matrix and performance values, respectively;
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sam3yial1qgt5xoufrbb.png" alt="knime-confusion">
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b2zaxm0wzmbmcdbcvobh.png" alt="knime-score">
+It seems to be a very successful model, here the dataset was not raw data. The performance of the data preprocessing on the data set was 98% accuracy. Preprocessing is definitely a important factor for model performance. If you create a model with the raw data set, you can see that you cannot achieve a high success.</p>
+<p>Due to the preprocessing of this dataset;</p>
+<ul>
+<li>reviewed with R</li>
+<li>Sample dataset review with Smote</li>
+<li>Outlier cleaning with R boxplot</li>
+<li>Second time dataset with SMOTE balancing</li>
+</ul>
+<p>You can find this project and its dataset in the repo in the link.</p>
+<h2 id="resources-and-project">Resources and project</h2>
+<ul>
+<li><a href="https://github.com/nuhyurduseven/Data-Science-Flow-Code">github repo</a></li>
+<li><a href="https://archive.ics.uci.edu/ml/datasets/HCV+data">HCV data dataset</a></li>
+</ul>
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+        <div class="col-md-6 share-buttons">
+        
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://github.com/hugo-toha/hugo-toha.github.io/edit/main/content/posts/review-of-data-science-tools.md" title="Improve this page" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Improve this page
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/hugo-github-page/" title="How to create a static website" class="btn btn-outline-info">
+        <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
+        <div class="next-prev-text">How to create a static website</div>
+      </a>
+    </div>
+  
+  
+</div>
+
+      <hr />
+
+      
+      
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
+  
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#knime">KNIME</a></li>
+    <li><a href="#configuration">Configuration</a>
+      <ul>
+        <li><a href="#java-11">JAVA 11</a></li>
+        <li><a href="#extension-installations">Extension installations</a></li>
+      </ul>
+    </li>
+    <li><a href="#machine-learning-application-with-knime">Machine Learning Application with KNIME</a></li>
+    <li><a href="#resources-and-project">Resources and project</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+  
+      
+  
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#experiences">Experiences</a>
+                </li>
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#accomplishments">Accomplishments</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#recent-posts">Recent Posts</a>
+                </li>
+              
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:nuh_yrdsvn@outlook.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>nuh_yrdsvn@outlook.com</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hossainemruz/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2020 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/js/navbar.js"></script>
+<script type="text/javascript" src="/js/plyr.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>

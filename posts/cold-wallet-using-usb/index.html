@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>How to create cold storage wallet using usb memory stick</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/layouts/main.css"/>
+<link rel="stylesheet" href="/css/navigators/navbar.css"/>
+<link rel="stylesheet" href="/css/plyr.css"/>
+<link rel="stylesheet" href="/css/flag-icon.min.css"/>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+
+
+<meta property="og:title" content="How to create cold storage wallet using usb memory stick" />
+<meta property="og:description" content="tutorial of a cold wallet using usb memory stick" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/cold-wallet-using-usb/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-10-08T06:00:23+06:00" />
+<meta property="article:modified_time" content="2021-10-08T06:00:23+06:00" />
+
+
+
+    
+    
+<meta name="description" content="tutorial of a cold wallet using usb memory stick" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/css/layouts/single.css"/>
+<link rel="stylesheet" href="/css/navigators/sidebar.css">
+
+<link rel="stylesheet" href="/css/style.css"/>
+
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      Nuh&#39;s Blog</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse lang-selector" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      
+      </ul>
+    </div>
+  </div>
+  
+  
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/flask-api/" title="Create a systemd service for Flask API(for GNU/Linux distros)">Create a systemd service for Flask API(for GNU/Linux distros)</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/cold-wallet-using-usb/" title="How to create cold storage wallet using usb memory stick">How to create cold storage wallet using usb memory stick</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/hugo-github-page/" title="How to make a static web sites using Hugo-Github Page">How to make a static web sites using Hugo-Github Page</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/review-of-data-science-tools/" title="Review of Data Science Platform Tools -KNIME Analytic(Section 1">Review of Data Science Platform Tools -KNIME Analytic(Section 1</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://example.com/images/posts/cold-wallet/coldwallet.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/pp_hu2a4128272a84060f71b4ba4af09fefd0_4909_120x120_fit_q75_box.jpeg' alt="Author Image">
+          <h5 class="author-name">Nuh Yurduseven</h5>
+          <p>October 8, 2021</p>
+        </div>
+
+        <div class="title">
+          <h1>How to create cold storage wallet using usb memory stick</h1>
+        </div>
+        
+        <div class="post-content" id="post-content">
+          <p>Hi, today I&rsquo;m  gonna teach you how to create a cold-storage wallet for bitcoin or other crypto-coins using usb memory and tails.</p>
+<p>Tails, an operating system based on Debian and providing anonymity by routing all network traffic through Tor, will be used as the operating system. We will examine what features are available in some security-oriented distributions.
+Let&rsquo;s dive the content.</p>
+<h3 id="cold-wallets-vs-hot-wallets">Cold-wallets vs Hot-wallets</h3>
+<p><strong>Cold wallets</strong> are a type of wallet that is used to store your private key and other information on hardware that does not have an internet connection. As another type, paper wallets can also be considered as cold wallets. Here, only the private key and the information that will enable us to reach the total balance in the blockchain are available. Examples of hardware wallets are <strong>ledger</strong> and <strong>trazor</strong>. These are electronic devices similar to USB sticks that are configured to generate public and private keys and are used to store keys with the highest level of security. It can be ordered and used within a certain fee. On the other hand,hot wallets are the type of wallet where the private key you will use to access your account on the internet is stored in a cloud-based wallet. This one is more insecure than the other but faster. Security in these types of wallets depends on measures taken by the provider of the wallet application, such as two-factor authentication. On the other hand, the security of the provider database also depends on the security measures that the wallet provider can take. This service, offered by many crypto exchanges, makes it easy to use money.</p>
+<p>It&rsquo;s good to say it again. Cryptocurrency is not a phenomenon that is stored like physical money. The amount transferred from one account to the other account is recorded in the blocks in the data structure, which is in the form of an interconnected list called Blockchain, and is added to the end of the block as a result of the transactions related to the operation of the blockcahin network. In other words, this database does not have an architecture where the amount of money and other information of any account is kept in an object as in banks. For this reason, crypto money cannot be stored in any hardware. The entire blockchain can be downloaded to disk by downloading the bitcoin core for bitcoin. This is the safest method. But as of August 4, 2021, the chain size is 349.3 GB. For this reason, this method is not preferred except bitcoin miners.</p>
+<h3 id="tails">Tails</h3>
+<p>Tails is a GNU/Linux distribution with Debian-based security customizations. This system is often used by cybersecurity professionals as a portable and secure operating system. In the crypto world, many people use this method to access and manage their money on the blockchain. You can click the <a href="https://tails.boum.org/install/">link</a> below to download Tails.</p>
+<p>Tails operating system is configured to be more of a portable system. The Internet connection can be routed through the Tor network. At the same time, the system can be &ldquo;persistent&rdquo; so that the files can be saved to the USB memory, and this section is encrypted to provide security. It should be noted that using the Tor network does not provide complete protection and complete invisibility. This is one of the common mistakes made by groups called “Lamer” or “Script Kiddie” in cyber security. Every system running on the Internet may have a security vulnerability. That&rsquo;s why it&rsquo;s still good to be careful. However, I believe that it can be quite useful as a cold wallet if used carefully.</p>
+<h3 id="installation-on-usb-stick">Installation on usb stick</h3>
+<p>After the iso is downloaded, the iso can be written to a usb stick. You can use dd or etcher or any of the rufus software for this. Then the system is started via USB memory. At the first boot, the basic language-keyboard settings are taken and configured and the live system is started in this way.
+<img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hpy74g6xv6woeeio72tv.png" alt="tails welcome"></p>
+<p>The method I use will be to create a kvm-qemu virtual machine on the host I use, and select and add the USB memory connected to the host machine with the virt-manager visual interface from the hardware list and start it from the boot menu on this device. Installation in a virtual machine is not recommended by tails. You can even detect that tails is running on the virtual machine and you will see a warning message. However, there will be no harm in doing the first installation in this way.
+The system works on usb but is still a live system.</p>
+<h3 id="make-persistent-and-encryption">Make persistent and encryption</h3>
+<p>For this feature, it can be used by encrypting the part that the system does not fill on the usb memory with the configure persistent volume option from the application menu. This section can be used with this password when you set a password and start the new system, but you can use this section as a live system without opening it.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3nydgwfw3ewg84qpxcf3.png" alt="encryption"></p>
+<h3 id="cold-wallet-configuration">Cold-wallet configuration</h3>
+<p>Tails comes with electrum bitcoin wallet installed. To use this wallet, the Bitcoin client must be activated from the configuration persistent volume application, so that the configurations and other data of this application can be saved in the persistent partition. A reboot is then required.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/cl7c9fc8t62onhxv3q49.png" alt="electrum-persistent"></p>
+<p>The necessary configurations can now be made by opening the Electrum wallet.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/rulam2gtqftw9g8oykof.png" alt="electrum-1"></p>
+<p>Electrum wallet is a very common wallet application. It can be installed on any machine, but in this way it will provide a safer use. First, the wallet must be given a name.
+Many options are available in the next menu. If you have a standard, 2-factor authentication, multi-signature or previously prepared wallet, you can import it.
+I will create a standart wallet.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8wlxc0ibtvyxhe6cx0cb.png" alt="electrum-2"></p>
+<p>In the next option, it is necessary to create a new seed. This is an algorithm that generates the private key. It generates a list of 12 words and this list represents your private key for you. You must record these words in order.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sypzdgr3ewjfahalgao7.png" alt="electrum-3"></p>
+<h4 id="__do-not-share-these-words-with-anyone__"><strong>Do not share these words with anyone</strong></h4>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/nkn9g7pifjj4r5fyq9uc.png" alt="electrum-4"></p>
+<p>In the next step, it asks you to enter these words in order. It then asks you for a password to re-encrypt your wallet.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2yhptdtnhvn0lzguasbm.png" alt="electrum-5"></p>
+<p>You can see the public key and other information of the wallet from the &ldquo;Wallet information&rdquo; tab.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/056fzxuf8avl6ws7utcl.png" alt="electrum-wallet"></p>
+<p>Now you can start using…
+It is necessary to use different wallets for other cryptocurrencies and tokens. For this, you can download and download different wallets and install them on the system.</p>
+<h3 id="other-security-orianted-gnulinux-os">Other security orianted GNU/Linux OS</h3>
+<p>Linux Kodachi is also a tails-like system but is a newer distribution. It routes network traffic through VPN and Tor. It can be installed on USB memory or DVD. Likewise, this is a Debian-based distribution.</p>
+<p>Whonix is ​​an operating system with a Debian-based Tor network and a security architecture based on isolation. Whonix consists of two parts: One runs only Tor and acts as a gateway, called the Whonix-Gateway. The other part, called Whonix-Workstation, is on a completely isolated network. Only connections through Tor are possible. It is one of the recommended distributions in the Cubes system. Security is provided by increasing isolation with virtualization on the Xen kernel.</p>
+<p>Some distributions such as Kali, Black Arch and Parrot are distributions where the test tools needed for offensive and defensive security are collected. These come pre-loaded with many tools such as metasploit where known exploits are collected, medusa which is a brute force tool, nmap for network scanning, wireshark and sqlninja.</p>
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+        <div class="col-md-6 share-buttons">
+        
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://github.com/hugo-toha/hugo-toha.github.io/edit/main/content/posts/cold-wallet-using-usb.md" title="Improve this page" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Improve this page
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+    
+    
+  
+  
+
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/flask-api/" title="Create a systemd service for Flask API(for GNU/Linux distros)" class="btn btn-outline-info">
+        <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
+        <div class="next-prev-text">Create a systemd service for Flask API(for GNU/Linux distros)</div>
+      </a>
+    </div>
+  
+  
+      
+      
+        
+      
+      <div class="col-md-6 next-article">
+        <a href="/posts/hugo-github-page/" title="How to create a static website" class="btn btn-outline-info">
+          <div>Next <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">How to create a static website</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
+  
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cold-wallets-vs-hot-wallets">Cold-wallets vs Hot-wallets</a></li>
+        <li><a href="#tails">Tails</a></li>
+        <li><a href="#installation-on-usb-stick">Installation on usb stick</a></li>
+        <li><a href="#make-persistent-and-encryption">Make persistent and encryption</a></li>
+        <li><a href="#cold-wallet-configuration">Cold-wallet configuration</a>
+          <ul>
+            <li><a href="#__do-not-share-these-words-with-anyone__"><strong>Do not share these words with anyone</strong></a></li>
+          </ul>
+        </li>
+        <li><a href="#other-security-orianted-gnulinux-os">Other security orianted GNU/Linux OS</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+  
+      
+  
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#experiences">Experiences</a>
+                </li>
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#accomplishments">Accomplishments</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://example.com#recent-posts">Recent Posts</a>
+                </li>
+              
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:nuh_yrdsvn@outlook.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>nuh_yrdsvn@outlook.com</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hossainemruz/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2020 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/js/navbar.js"></script>
+<script type="text/javascript" src="/js/plyr.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>
