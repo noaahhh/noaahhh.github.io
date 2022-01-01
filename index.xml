@@ -373,6 +373,25 @@ Cold-wallets vs Hot-wallets Cold wallets are a type of wallet that is used to st
     </item>
     
     <item>
+      <title>Using multiple GNU/Linux at the same time-Bedrock Linux</title>
+      <link>https://nuhyurduseven.github.io/posts/bedrock-linux/</link>
+      <pubDate>Sat, 25 Sep 2021 06:00:23 +0600</pubDate>
+      
+      <guid>https://nuhyurduseven.github.io/posts/bedrock-linux/</guid>
+      <description>How to Use Multiple GNU/Linux at the Same Time with Bedrock Linux Hello, in this article, I will talk about Bedrock Linux, which is a daemon that allows to use software packages from more than one package manager, while also installing and using multiple distributions in layers. Although it is described as a separate Linux distribution, we can say that it is a daemon that connects the distributions installed to the root directory and then installed in layers, to the root directory.</description>
+    </item>
+    
+    <item>
+      <title>How to Create GUI for remote server with i3 window manager</title>
+      <link>https://nuhyurduseven.github.io/posts/how-to-create-gui/</link>
+      <pubDate>Fri, 05 Jun 2020 06:00:23 +0600</pubDate>
+      
+      <guid>https://nuhyurduseven.github.io/posts/how-to-create-gui/</guid>
+      <description>Hello there. This article is about providing management via a UI by installing a window manager or desktop environment for servers and establishing a remote connection. A graphical server and desktop environment are not used on remote servers because server resources are usually limited. In this post I will be working on a remote server with i3, a lightweight window manager.
+Note: Instead of a remote server, I will prepare a virtual server by giving a random IP on my own computer with Vagrant and perform the operations.</description>
+    </item>
+    
+    <item>
       <title>Search Results</title>
       <link>https://nuhyurduseven.github.io/search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

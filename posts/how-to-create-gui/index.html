@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>How to Create GUI for remote server with i3 window manager</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/layouts/main.css"/>
+<link rel="stylesheet" href="/css/navigators/navbar.css"/>
+<link rel="stylesheet" href="/css/plyr.css"/>
+<link rel="stylesheet" href="/css/flag-icon.min.css"/>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;500;600" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+
+
+
+
+<meta property="og:title" content="How to Create GUI for remote server with i3 window manager" />
+<meta property="og:description" content="A tutorial about remote connection" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://nuhyurduseven.github.io/posts/how-to-create-gui/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-06-05T06:00:23+06:00" />
+<meta property="article:modified_time" content="2020-06-05T06:00:23+06:00" />
+
+
+
+    
+    
+<meta name="description" content="A tutorial about remote connection" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/atom-one-dark.min.css"
+/>
+<link rel="stylesheet" href="/css/layouts/single.css"/>
+<link rel="stylesheet" href="/css/navigators/sidebar.css">
+
+<link rel="stylesheet" href="/css/style.css"/>
+
+
+
+    
+    
+  </head>
+
+  <body data-spy="scroll" data-target="#TableOfContents" data-offset="80">
+    <div class="container-fluid bg-dimmed wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-xl top-navbar final-navbar shadow">
+  <div class="container">
+      <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button" onclick="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/">
+      Nuh&#39;s Personel Web Site</a>
+    <button class="navbar-toggler navbar-light" id="toc-toggler" type="button" onclick="toggleTOC()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse lang-selector" id="top-nav-items">
+      <ul class="navbar-nav ml-auto">
+      
+      </ul>
+    </div>
+  </div>
+  
+  
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Search" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/flask-api/" title="Create a systemd service for Flask API(for GNU/Linux distros)">Create a systemd service for Flask API(for GNU/Linux distros)</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/cold-wallet-using-usb/" title="How to create cold storage wallet using usb memory stick">How to create cold storage wallet using usb memory stick</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active" href="/posts/how-to-create-gui/" title="How to Create GUI for remote server with i3 window manager">How to Create GUI for remote server with i3 window manager</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/hugo-github-page/" title="How to make a static web sites using Hugo-Github Page">How to make a static web sites using Hugo-Github Page</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/review-of-data-science-tools/" title="Review of Data Science Platform Tools -KNIME Analytic(Section 1">Review of Data Science Platform Tools -KNIME Analytic(Section 1</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class="" href="/posts/bedrock-linux/" title="Using multiple GNU/Linux at the same time-Bedrock Linux">Using multiple GNU/Linux at the same time-Bedrock Linux</a></li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(https://nuhyurduseven.github.io/images/posts/i3wm/i3wm.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        <div class="author-profile ml-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/pp_hu2a4128272a84060f71b4ba4af09fefd0_4909_120x120_fit_q75_box.jpeg' alt="Author Image">
+          <h5 class="author-name">Nuh Yurduseven</h5>
+          <p>June 5, 2020</p>
+        </div>
+
+        <div class="title">
+          <h1>How to Create GUI for remote server with i3 window manager</h1>
+        </div>
+        
+        <div class="post-content" id="post-content">
+          <p>Hello there. This article is about providing management via a UI by installing a window manager or desktop environment for servers and establishing a remote connection. A graphical server and desktop environment are not used on remote servers because server resources are usually limited. In this post I will be working on a remote server with i3, a lightweight window manager.</p>
+<p>Note: Instead of a remote server, I will prepare a virtual server by giving a random IP on my own computer with Vagrant and perform the operations. This is how you can make your first attempts.</p>
+<h2 id="whats-i3-wm">What&rsquo;s i3 wm</h2>
+<p>For operating systems based on the Linux kernel, the graphical interface does not directly belong to the operating system. It is a module that connects to the operating system like any application. In this way, a crash on the graphics side does not affect the operating system. It is sufficient to resolve the graphics server error and restart it.” X Window” is a widely used graphics server developed in a very flexible way. Most current and known distributions use Xorg as graphics server. It contains a &ldquo;window manager&rdquo; inside. Its task is to organize operations such as screen layout of windows, adjusting the size, creating virtual desktops. Enlightment, Blackbox, kwin in kde and i3 etc… These are examples of window managers. i3 window manager is very light (1.2mb) and easy to use thanks to keyboard shortcuts. This is an alternative to install on your remote servers that are not very resource rich.</p>
+<h2 id="installing-ubuntu-server-via-vagrantoptional">Installing Ubuntu server via vagrant(optional)</h2>
+<p>With Vagrant, you can create a virtual server on virtualbox and work on this server. After installing the appropriate vagrant version and oracle virtualbox application for your system, you can create a vagrant box and work as if you were working with a machine with a static IP.
+<a href="https://www.vagrantup.com/">Click the link to download vagrant</a></p>
+<p>“<strong>vagrant boxes</strong>” describe operating systems that are installed and ready to be used. After downloading and creating a vagrant file on <a href="https://app.vagrantup.com/boxes/search">“Vagrant cloud”</a>, it can be raised with vagrant.</p>
+<p>With vagrant box add <strong>{title}</strong> or <strong>{url}</strong>, you can download a new vagrant box from the new cloud. You can check with <code>vagrant box list</code>, create a <code>vagrantfile</code> with <code>vagrant init</code>, and raise the server with <code>vagrant run</code>. If different configurations are required, you can create vagrant fie manually and then raise it with <code>vagrant up</code>.</p>
+<p>Let&rsquo;s download the ubuntu box, which is in the first place on the cloud.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vagrant box add ubuntu/trusty64
+</code></pre></div><p>After checking if it is in the list, let&rsquo;s save the following vagrant file with the name <code>Vagrantfile</code> in the directory we are working in. It can then be lifted up with <code>vagrant up</code>. You can send a &ldquo;shut down&rdquo; signal with <code>vagrant halt</code> to turn it off.</p>
+<pre tabindex="0"><code>NAME = &quot;remote-Server&quot;  
+IP = &quot;192.168.1.XX&quot;
+
+Vagrant.configure(&quot;2&quot;) do |config|  
+  config.vm.box = &quot;ubuntu/trusty64&quot;
+  config.vm.hostname = NAME
+  config.vm.network &quot;public_network&quot;, ip: IP
+
+  config.vm.provider &quot;virtualbox&quot; do |vb|
+    vb.customize [&quot;modifyvm&quot;, :id, &quot;--memory&quot;, '2048']
+    vb.name='remote-server'
+  end
+    config.vm.provision &quot;shell&quot; do |s|
+    s.inline = &quot;echo Server created succesfully!&quot;
+  end
+end
+</code></pre><p>The IP given here is an IP address in the internal network. The virtual machine is a different computer in the internal network and is connected with a bridge adapter.</p>
+<p>Select your bridge adapter after the up command. Wifi or ethernet adapter. You can see the hostname and username information, and other information&hellip;</p>
+<p>Once it&rsquo;s up we can connect via ssh.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ssh vagrant@192.168.1.X 
+</code></pre></div><p><strong>password: vagrant</strong>
+and we are inside&hellip;</p>
+<h2 id="installation-of-xserver-and-i3-wm">Installation of xserver and i3 wm</h2>
+<p>If your server does not have a graphics server on it, it must be installed before i3. You can check it with <code>startx</code>. It is a shell script that runs <code>xinit</code>.</p>
+<p><code>Xorg</code> and <code>openbox </code>should be installed on Ubuntu. It is available in the Repository. You can install them using “<code>apt install</code>”. You can find x graphics server installations on Centos, opensuse, fedora or bsd based systems in user guides, wiki pages and forums. (stackoverflow, superuser, stackexchange etc)</p>
+<p>Afterwards, the i3 package in the repository can be downloaded and installed.</p>
+<p>Then the graphics server should be started using the <code>startx</code> shell script.</p>
+<p>If you do not have limiting factors such as memory and storage space on your remote server, you can use <strong>&ldquo;xfce desktop environment&rdquo;</strong>. This “DE” has a clean interface and uses very little resources.</p>
+<h2 id="connection-of-server">Connection of Server</h2>
+<p>There are different options available at this stage. You can make a remote connection and manage the system with the &ldquo;remote connection&rdquo; application you want. You can select an application that you can connect with the operating system you use and the operating system you use on the remote server. Tools such as <strong>teamviewer</strong>, <strong>anydesk</strong>, <strong>tigerVNC</strong>, <strong>tightVNC</strong>, <strong>realVNC</strong>, <strong>remmina</strong>, <strong>zoho assist</strong>, <strong>Apache Guacamole</strong>, <strong>NoMachine</strong>, <strong>xrdp</strong>, <strong>freeNX</strong> are widely used. Here we come across <code>SSH</code>, <code>RDP</code> and <code>VNC</code> as protocols. <code>SSH (Secure Shell)</code> is a secure remote connection protocol.<code> RDP (Remote Desktop Protocol)</code> is a protocol developed by Microsoft that enables connection with the graphical interface of remote windows machines. <code>VNC (Virtual Network Connection)</code> is a platform-independent, server-client architecture protocol that allows to manage applications on a graphical interface running on any network server with a remote connection. You can use any of the above tools for remote control.</p>
+<p><code>Apache Guacomole</code> is a little different. Because it has a client-less structure. After the installation on the server side, the connection can be established and managed via the web browser of any computer.</p>
+<p>You can use one of the advanced software mentioned above or other than these. But I will use a vnc application to be lightweight. The packages required on the server side are <code>i3</code> and <code>xorg</code>for Ubuntu server. Apt will automatically install the dependent packages. Firefox and vim can also be installed. These packages should also be installed in distributions such as Centos, SUSE, Arch. Package names may be different in the repository, but basically a graphical server driver and a window manager or desktop environment are needed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt install xorg i3 firefox vim 
+</code></pre></div><p>Then tightvncserver should be installed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ sudo apt install tightvncserver 
+</code></pre></div><p>Then the server should be started with the vncserver command. At this stage, vnc password should be determined, if needed, password can be set for view-only mode.</p>
+<p>It gives each session an id and to kill the session;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ vncserver -kill :session_number
+</code></pre></div><p>Connection can be made by using any client application that supports vnc on the client side. realVNC or remmina etc. applications can be used.</p>
+<p>In order to have a secure connection, tunneling is done with ssh on the client side. 5900+N port is the default vnc port. Here N stands for the screen number. So more than one X session can be connected. <strong>Default port + session number</strong> is to make it easier to manage.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ ssh -L 5901:127.0.0.1:5091 -C -N -l username ip_addr
+</code></pre></div><p>You can monitor whether the connection is established with netstat.(It may differ in some distros. For example, on Solus, the <code>ss</code> command does the same job as netstat.)</p>
+<p>Then, it is sufficient to select the <code>VNC protocol</code> on<code> Remmina</code> and connect to the <code>localhost:5901</code> port. Then the connection can be established with vnc password.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mn2m7basujw3z1xhl8gv.png" alt="connection via VNC-Remmina"></p>
+<p>It offers an option to change the config file at first launch or to use it with its default settings.<code> Alt+enter</code> is used to open terminal with default settings. <code>Alt+h</code> can be used to split the new window&rsquo;s position vertically, <code>alt+v</code> to split it horizontally. You can learn the usage information in detail from the user&rsquo;s guide on its web page or from the blogs. Below is a firefox browser, active processes and a terminal.</p>
+<p><img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/w57yao2gekagopwcdcac.png" alt="I3 vm and ubuntu"></p>
+<p><code>vncserver</code> can be made into a <code>systemd</code> service. In this way, vnc session can be started at every system startup.</p>
+<p>It can be used in a lightweight &ldquo;desktop environment&rdquo; like xfce instead of a &ldquo;window manager&rdquo;. You can integrate it by making some changes in the configuration settings…</p>
+
+        </div>
+
+        
+        <div class="row pl-3 pr-3">
+        
+        <div class="col-md-6 share-buttons">
+        
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://github.com/hugo-toha/hugo-toha.github.io/edit/main/content/posts/how-to-create-GUI.md" title="Improve this page" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Improve this page
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/cold-wallet-using-usb/" title="How to create cold storage wallet using usb memory stick" class="btn btn-outline-info">
+        <div><i class="fas fa-chevron-circle-left"></i> Prev</div>
+        <div class="next-prev-text">How to create cold storage wallet using usb memory stick</div>
+      </a>
+    </div>
+  
+  
+      
+      
+        
+      
+      <div class="col-md-6 next-article">
+        <a href="/posts/hugo-github-page/" title="How to create a static website" class="btn btn-outline-info">
+          <div>Next <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">How to create a static website</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn"><i class="fas fa-chevron-circle-up"></i></a>
+  
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center pl-3">Table of Contents</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#whats-i3-wm">What&rsquo;s i3 wm</a></li>
+    <li><a href="#installing-ubuntu-server-via-vagrantoptional">Installing Ubuntu server via vagrant(optional)</a></li>
+    <li><a href="#installation-of-xserver-and-i3-wm">Installation of xserver and i3 wm</a></li>
+    <li><a href="#connection-of-server">Connection of Server</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+  
+      
+  
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-left">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navigation</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://nuhyurduseven.github.io#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://nuhyurduseven.github.io#skills">Skills</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://nuhyurduseven.github.io#experiences">Experiences</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://nuhyurduseven.github.io#education">Education</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://nuhyurduseven.github.io#projects">Projects</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://nuhyurduseven.github.io#accomplishments">Accomplishments</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://nuhyurduseven.github.io#recent-posts">Recent Posts</a>
+                </li>
+              
+          </ul>
+          
+        </div>
+        
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Contact me:</h5>
+          <ul>
+            
+              
+                <li><a href=mailto:nuh_yrdsvn@outlook.com target="_blank" rel="noopener">
+                  <span><i class="fas fa-envelope"></i></span> <span>nuh_yrdsvn@outlook.com</span>
+                </a></li>
+              
+            
+          </ul>
+        </div>
+        
+        
+        
+      </div>
+    </div>
+    
+    
+    <hr />
+    <div class="container">
+      <div class="row text-left">
+        <div class="col-md-4">
+          <a id="theme" href="https://github.com/hossainemruz/toha" target="_blank" rel="noopener">
+            <img src="/images/theme-logo_hu8376fd15465fef26ffe66b6bcf0ca686_13669_32x0_resize_box_3.png" alt="Toha Theme Logo">
+            Toha
+          </a>
+        </div>
+        <div class="col-md-4 text-center">© 2020 Copyright.</div>
+        <div class="col-md-4 text-right">
+          <a id="hugo" href="https://gohugo.io/" target="_blank" rel="noopener">Powered by
+          <img
+            src="/images/hugo-logo.svg"
+            alt="Hugo Logo"
+            height="18"
+          />
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="/js/navbar.js"></script>
+<script type="text/javascript" src="/js/plyr.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+    
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script src="/js/single.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+
+  </body>
+</html>
