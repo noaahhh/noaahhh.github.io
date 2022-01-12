@@ -6,7 +6,7 @@
     <description>Recent content on Nuh&#39;s Personel Web Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Dec 2021 06:00:23 +0600</lastBuildDate><atom:link href="https://nuhyurduseven.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jan 2022 06:00:23 +0600</lastBuildDate><atom:link href="https://nuhyurduseven.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Resultados de Búsqueda</title>
       <link>https://nuhyurduseven.github.io/search/</link>
@@ -330,6 +330,16 @@ No content shown here is rendered, all content is based in the template layouts/
 Setting a very low sitemap priority will tell search engines this is not important content.
 This implementation uses Fusejs, jquery and mark.js
 Initial setup Search depends on additional output content type of JSON in config.toml ``` [outputs] home = [&amp;ldquo;HTML&amp;rdquo;, &amp;ldquo;JSON&amp;rdquo;] ```</description>
+    </item>
+    
+    <item>
+      <title>Using Rstudio with windows subsystem for linux</title>
+      <link>https://nuhyurduseven.github.io/posts/rstudio/</link>
+      <pubDate>Wed, 12 Jan 2022 06:00:23 +0600</pubDate>
+      
+      <guid>https://nuhyurduseven.github.io/posts/rstudio/</guid>
+      <description>Hi, In this post, I gonna show you how to install Rstudio on wsl system and to reach over the browser. if you are using windows and dont want to use Rstudio client in windows-side, this method will work perfectly.
+Install windows-subsystem for linux  Open the Microsoft store and search &amp;ldquo;wsl&amp;rdquo; or &amp;ldquo;ubuntu&amp;rdquo; In windows store, There are many windows subsystem for linux distributions such as Ubuntu, debian, suse, kali, alpine wsl etc.</description>
     </item>
     
     <item>
